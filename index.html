@@ -1,218 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academlo Store</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academlo Store</title>
+  <!--=============== FAVICON ===============-->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+  <!--=============== BOXICONS ===============-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <div id="loader" class="loader">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="loader--img">
-            <title>Academlo Logo</title>
+
+  <!--==================== LOADER ====================-->
+  <div class="loader" id="loader">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="loader__gif">
+      <title>Academlo Logo</title>
+      <g>
+        <g>
+          <path
+            d="M24.45,56.48,0,42.36V14.12L24.46,0,48.92,14.12V42.36ZM1.89,41.26l22.56,13L47,41.26v-26l-22.56-13-22.56,13Z">
+          </path>
+          <path
+            d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
+          </path>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="nav__logo-icon">
+          <title>Academlo Logo</title>
+          <g>
             <g>
-                <g>
-                    <path
-                    d="M24.45,56.48,0,42.36V14.12L24.46,0,48.92,14.12V42.36ZM1.89,41.26l22.56,13L47,41.26v-26l-22.56-13-22.56,13Z">
-                    </path>
-                    <path
-                    d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
-                    </path>
-                </g>
+              <!-- <path d="M24.45,56.48,0,42.36V14.12L24.46,0,48.92,14.12V42.36ZM1.89,41.26l22.56,13L47,41.26v-26l-22.56-13-22.56,13Z"></path> -->
+              <path
+                d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
+              </path>
             </g>
-        </svg>
+          </g>
+        </svg> Store
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link">Home</a>
+          </li>
+          <!-- <li class="nav__item">
+            <a href="#featured" class="nav__link">Featured</a>
+          </li> -->
+          <li class="nav__item">
+            <a href="#products" class="nav__link">Products</a>
+          </li>
+          <!-- <li class="nav__item">
+            <a href="#new" class="nav__link">New</a>
+          </li> -->
+        </ul>
+
+        <div class="nav__close" id="nav-close">
+          <i class='bx bx-x'></i>
+        </div>
+      </div>
+
+      <div class="nav__btns">
+        <!-- Theme change button -->
+        <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+        <div class="nav__shop" id="cart-shop">
+          <i class='bx bx-shopping-bag'></i>
+          <span id="cart-count" class="count"></span>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class='bx bx-grid-alt'></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--==================== CART ====================-->
+  <div class="cart" id="cart">
+    <i class='bx bx-x cart__close' id="cart-close"></i>
+
+    <h2 class="cart__title-center">My Cart</h2>
+
+    <div class="cart__container"></div>
+
+    <div class="cart__prices">
+      <span class="cart__prices-item"><span id="items-count"></span> items</span>
+      <span class="cart__prices-total" id="cart-total"></span>
     </div>
-    <!-- NAV -->
-    <header>
-        <nav class="before">
-            <div class="logo-nav">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48">
-                <title>Academlo Logo</title>
-                <g>
-                <g>
-                    <path
-                    d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
-                    </path>
-                </g>
-                </g>
-                </svg>
-                <p>STORE</p>
-            </div>
-            <div class="menu-back">
-            <div class="menu--container">
-                <!-- <ul class="menu-item main-links"> -->
-                    <div id="contain-home"><a href="#">Home</a></div>
-                    <div><a href="#section--submenu">Products</a></div>
-                    
-                <!-- </ul> -->
-            </div>
-            </div>
-        
-            <!-- DARK MODE -->
-            <div class="dark--mode--icon">
-                <i class='bx bx-moon bx-sm' id="theme-btn"></i>
-            </div>
-            <!-- CART SHOP -->
-            <div id="cart-shop" class="nav--cart">
-                <i class='bx bx-shopping-bag bx-sm'></i>
-                <span id="cart-counter" class="counter"><span id="cart_quantity">0</span></span>
-            </div>
-            <!-- GRID ICON -->
-            <div class="grid--icon">
-                <i class='bx bx-menu bx-sm' id="btn-menu"></i>
-                <!-- <i class='bx bx-grid-alt bx-sm' id="btn-menu"></i> -->
-                
 
-                
-            </div>
-            <!-- CART SHOP HIDE -->
-            <div class="cart--container hide" id="cart-container">
-                <div class="cart" id="cart_1">
-                    <div id="produc-selec">
-                        <div class="cart--empty" >
-                            <h3 class="cart--title">My Cart</h3>
-                            <div class="cart--hide hide">
-                                <img src="./assets/images/empty-cart.png">
-                                <h2 class="cart--text--h2">Your cart is empty</h2>
-                                <span class="cart--span">You can add items to your cart by clicking on the '+' button on the product page.</span> 
-                            </div>
-                            <!-- CART SHOP EMPTY -->
-                            <div class="cart--items">
-                                <spam class="cart--count"> 0 Items<span>
-                                <spam class="cart--price"> $0.00 Items<span>
-                            </div>
-                            <div class="cart--btn">
-                                <button class="btn-checkout"> <i class='bx bxs-check-shield'></i> Checkout</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="total">
-                    </div>
-                    <div class="close--cart">
-                        <i class='bx bx-x' id="close-cart"></i>
-                    </div>
-                </div>
-            </div>
-        </nav>   
-        <!-- <section class="main--product">
-            <div class="product-container producto">
-                <img src="./assets/images/featured2.png" alt="">
-            </div>
-        </section> -->
-    </header>
-    <section class="banner">
-        <div class="banner--img--container">
-            <img src="./assets/images/home.png" alt="">
+    <div class="cart__checkout">
+      <button class="button cart__btn" id="cart-checkout" disabled><i class='bx bxs-check-shield'></i> Checkout</button>
+    </div>
+
+  </div>
+
+  <!--==================== MAIN ====================-->
+  <main class="main">
+
+    <!--==================== HOME ====================-->
+    <section class="home" id="home">
+      <div class="home__container container grid">
+        <div class="home__img-bg">
+          <img src="assets/img/home.png" alt="" class="home__img">
         </div>
-        
+
+        <div class="home__data">
+          <h1 class="home__title">New Sweatshirt <br> COLLECTIONS 2022</h1>
+          <p class="home__description">
+            Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a modern
+            design.
+          </p>
+          <span class="home__price">$14.00</span>
+
+          <div class="home__btns">
+            <a href="#" class="button button--gray button--small">
+              Discover
+            </a>
+
+            <button class="button home__button">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
     </section>
-    <main>
-        <section class="main--description">
-            <h1>New Sweatshirt</h1>
-            <h4>COLLECTIONS 2022</h4>
-            <p>Lastest arrival of the new Hares Midweight Crewneck sweatshit imported from the 2022 series, with a modern design.</p>
-            <p class="price">$14.00</p>
-            <div class="btn--container--main" id="4">
-                <button class="btn--discover--main">Discover</button>
-                <button class="btn-add btn--add--main">ADD TO CART</button>
-            </div>
-        </section> 
-        <section id="section--submenu" class="section--submenu">
-                   <div class="submenu--row">
-                    <div onclick="showProductsFiltered('all')" class="submenu--col">
-                        <h4>Show All</h4>
-                        <p>show all products</p>
-                    </div>
-                    <div class="submenu--col-line"></div>
-                    <div onclick="showProductsFiltered('Hoodies')" class="submenu--col">
-                        <h4>Hoodies</h4>
-                        <p>3 products</p>
-                    </div>
-                    <div class="submenu--col-line"></div>
-                    <div onclick="showProductsFiltered('Shirts')" class="submenu--col">
-                        <h4>Shirts</h4>
-                        <p>4 products</p>
-                    </div>
-                    <div class="submenu--col-line"></div>
-                    <div onclick="showProductsFiltered('Sweatshirts')" class="submenu--col">
-                        <h4>Sweatshirts</h4>
-                        <p>4 products</p>
-                    </div>
-                  </div>
 
-        </section>
-        <section id="products-list">
-        </section>
-    </main>
-    <footer>
-        <div class="footer--container">
-            <div class="footer--section--wrapper">
-                <div class="footer--section">
-                    <h2 class="footer--category">Our Information</h2>
-                    <ul class="footer--list">
-                        <li>
-                            <a href="" class="footer--link">Toluca, México</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer--section">
-                    <h2 class="footer--category">About Us</h2>
-                    <ul class="footer--list">
-                        <li>
-                            <a href="" class="footer--link">Support Center</a>
-                        </li>
-                        <li>
-                            <a href="" class="footer--link">Customer Support</a>
-                        </li>
-                        <li>
-                            <a href="" class="footer--link">About Us</a>
-                        </li>
-                        <li>
-                            <a href="" class="footer--link">Copy Right</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer--section">
-                    <h2 class="footer--category">Product</h2>
-                    <ul class="footer--list">
-                        <li>
-                            <div onclick="showProductsFiltered('Hoodies')"  class="footer-div-link">Hoodies</div>
-                        </li>
-                        <li>
-                            <div onclick="showProductsFiltered('Shirts')" class="footer-div-link">Shirts</div>
-                        </li>
-                        <li>
-                            <div onclick="showProductsFiltered('Sweatshirts')" class="footer-div-link">Sweatshirts</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer--section">
-                    <h2 class="footer--category">Social</h2>
-                    <ul class="footer--social">
-                        <li>
-                            <a href="" class="footer--social--icon"><i class='bx bxl-facebook bx-sm'></i></a>
-                        </li>
-                        <li>
-                            <a href="" class="footer--social--icon"><i class='bx bxl-twitter bx-sm'></i></a>
-                        </li>
-                        <li>
-                            <a href="" class="footer--social--icon"><i class='bx bxl-instagram bx-sm'></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <p class="footer--copyright">&copy; ACADEMLO all rights reserved</p>
-        <div class="academlo">
-            <p>Hecho con <span><i class='bx bxs-heart'></i></span> en Academlo</p>
-        </div>
-</footer>
-    <script src="./assets/js/main.js"></script>
+    <!--==================== PRODUCTS ====================-->
+    <section class="products" id="products">
+      <div class="products__container container">
+        <ul class="products__filters">
+          <li class="products__item products__line" data-filter="all">
+            <h3 class="products__title">
+              Show All
+            </h3>
+            <span class="products__stock">
+              show all products
+            </span>
+          </li>
+
+          <li class="products__item products__line active-product" data-filter=".hoodies">
+            <h3 class="products__title">
+              Hoodies
+            </h3>
+            <span class="products__stock">
+              3 products
+            </span>
+          </li>
+
+          <li class="products__item products__line" data-filter=".shirts">
+            <h3 class="products__title">
+              Shirts
+            </h3>
+            <span class="products__stock">
+              4 products
+            </span>
+          </li>
+
+          <li class="products__item" data-filter=".sweatshirts">
+            <h3 class="products__title">
+              Sweatshirts
+            </h3>
+            <span class="products__stock">
+              4 products
+            </span>
+          </li>
+        </ul>
+
+        <div class="products__content grid" id="products__content"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer section">
+    <div class="footer__container container grid">
+      <div class="footer__content">
+        <h3 class="footer__title">Our information</h3>
+
+        <ul class="footer__list">
+          <li>Toluca - México</li>
+        </ul>
+      </div>
+      <div class="footer__content">
+        <h3 class="footer__title">About Us</h3>
+
+        <ul class="footer__links">
+          <li>
+            <a href="#" class="footer__link">Support Center</a>
+          </li>
+          <li>
+            <a href="#" class="footer__link">Customer Support</a>
+          </li>
+          <li>
+            <a href="#" class="footer__link">About Us</a>
+          </li>
+          <li>
+            <a href="#" class="footer__link">Copy Right</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Product</h3>
+
+        <ul class="footer__links">
+          <li>
+            <a href="#" class="footer__link">Hoodies</a>
+          </li>
+          <li>
+            <a href="#" class="footer__link">Shirts</a>
+          </li>
+          <li>
+            <a href="#" class="footer__link">Sweatshirts</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Social</h3>
+
+        <ul class="footer__social">
+          <a href="#" target="_blank" class="footer__social-link">
+            <i class='bx bxl-facebook'></i>
+          </a>
+
+          <a href="#" target="_blank" class="footer__social-link">
+            <i class='bx bxl-twitter'></i>
+          </a>
+
+          <a href="#" target="_blank" class="footer__social-link">
+            <i class='bx bxl-instagram'></i>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!--=============== SCROLL UP ===============-->
+  <a href="#" class="scrollup" id="scroll-up">
+    <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+  </a>
+
+  <!--=============== MIXITUP FILTER ===============-->
+  <script src="assets/js/helpers/mixitup.min.js"></script>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="assets/js/main.js" type="module"></script>
 </body>
+
 </html>
